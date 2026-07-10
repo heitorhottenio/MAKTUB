@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Esfiharia Maktub's | Escolha sua unidade</title>
+  <meta name="description" content="Escolha a unidade da Esfiharia Maktub's e faça seu pedido online de forma rápida e prática." />
+  <meta name="author" content="Esfiharia Maktub's" />
+  <meta property="og:title" content="Esfiharia Maktub's | Escolha sua unidade" />
+  <meta property="og:description" content="Escolha a unidade da Esfiharia Maktub's e faça seu pedido online de forma rápida e prática." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://id-preview--5be2ce28-4aa3-42f7-a625-8129c8cf711d.lovable.app/__l5e/assets-v1/dd0baa3c-8ffa-427f-bd68-abd1bb73d352/maktubs-bg.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#3a0f12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #D9A52B;
+      --gold-light: #f4d98a;
+      --gold-pale: #f2d78a;
+      --dark: #3a0f12;
+      --dark-deep: #1e0608;
+      --burgundy: #5a1a1d;
+      --cream: #f8ecd2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--cream);
+      background-color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: linear-gradient(rgba(58, 15, 18, 0.55), rgba(30, 6, 8, 0.9)),
+        url('https://id-preview--5be2ce28-4aa3-42f7-a625-8129c8cf711d.lovable.app/__l5e/assets-v1/dd0baa3c-8ffa-427f-bd68-abd1bb73d352/maktubs-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at top, rgba(217, 165, 43, 0.10), transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.55), transparent 60%);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 500px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.7s ease-out both;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 7vw, 2.5rem);
+      font-weight: 600;
+      color: var(--gold-pale);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      white-space: pre-line;
+    }
+
+    .divider {
+      margin: 0.75rem auto 0;
+      width: 6rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .subtitle {
+      margin-top: 1.25rem;
+      font-size: clamp(0.875rem, 3.5vw, 1rem);
+      line-height: 1.6;
+      color: rgba(248, 236, 210, 0.85);
+      padding: 0 0.5rem;
+    }
+
+    .units {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .unit {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(217, 165, 43, 0.4);
+      background: linear-gradient(180deg, var(--gold-light), var(--gold));
+      color: var(--burgundy);
+      text-decoration: none;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      animation: slideUp 0.5s ease-out forwards;
+    }
+
+    .unit:nth-child(1) { animation-delay: 0.15s; }
+    .unit:nth-child(2) { animation-delay: 0.27s; }
+    .unit:nth-child(3) { animation-delay: 0.39s; }
+
+    .unit:hover,
+    .unit:active {
+      transform: scale(1.02);
+      border-color: var(--gold-light);
+      box-shadow: 0 15px 40px -10px rgba(217, 165, 43, 0.5);
+    }
+
+    .unit:active {
+      transform: scale(0.99);
+    }
+
+    .icon {
+      flex-shrink: 0;
+      width: 2.75rem;
+      height: 2.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background-color: var(--burgundy);
+      color: var(--gold-pale);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .unit:hover .icon {
+      transform: rotate(-6deg);
+    }
+
+    .icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke-width: 2.2;
+    }
+
+    .unit-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .unit-name {
+      font-size: clamp(0.95rem, 4vw, 1.125rem);
+      font-weight: 600;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .unit-action {
+      font-size: clamp(0.75rem, 3.2vw, 0.875rem);
+      font-weight: 500;
+      color: rgba(90, 26, 29, 0.75);
+    }
+
+    .arrow {
+      flex-shrink: 0;
+      font-size: 1.25rem;
+      color: rgba(90, 26, 29, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .unit:hover .arrow {
+      transform: translateX(0.25rem);
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(248, 236, 210, 0.6);
+    }
+
+    footer .heart {
+      color: #FFD700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      .unit {
+        padding: 0.875rem 1rem;
+      }
+      .icon {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="container">
+    <div class="card">
+      <header>
+        <h1><br></h1>
+        <div class="divider"></div>
+        <p class="subtitle">
+          As melhores esfihas da região.<br />
+          Escolha sua unidade e faça seu pedido.
+        </p>
+      </header>
+
+      <nav class="units" aria-label="Unidades da Esfiharia Maktub's">
+        <a class="unit" href="https://pedir.delivery/app/esfihariamaktubjundiai/menu" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </span>
+          <span class="unit-text">
+            <span class="unit-name">Unidade Retiro</span>
+            <span class="unit-action">Faça seu pedido online</span>
+          </span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="unit" href="https://pedir.delivery/app/esfihariamaktubseloy/menu" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </span>
+          <span class="unit-text">
+            <span class="unit-name">Unidade Eloy</span>
+            <span class="unit-action">Faça seu pedido online</span>
+          </span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="unit" href="https://pedir.delivery/app/esfihariamaktubs-vlarens/menu" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </span>
+          <span class="unit-text">
+            <span class="unit-name">Unidade Vila Rami</span>
+            <span class="unit-action">Faça seu pedido online</span>
+          </span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+      </nav>
+    </div>
+
+    <footer>
+      Feito com <span class="heart">💛</span> Esfiharia Maktub's
+    </footer>
+  </main>
+</body>
+</html>
